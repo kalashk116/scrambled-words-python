@@ -3,17 +3,17 @@ import random
 print('WELCOME TO THE GAME OF SCRAMBLED WORDS !!!')
 print('In this game you will given jumbled words and You will have to guess the correct word. If correct, then you will gain a point !! ')
 print(' ')
-print('you will be given 5 rounds to play !!')
+ro=int(input("Enter the number of rounds you want to play: "))
 wordlist =['hypothesis', 'sandalwood', 'elusive', 'naive', 'complement', 'exclusive', 'heavenly', 'decisive', 'malicious', 'murmured', 'bestseller', 'unicorn', 'glorious', 'grumpy', 'convincing', 'expired', 'reason', 'conference']
 score=0
-for i in range(5):
+for i in range(ro):
     word=random.choice(wordlist)
     word_list = list(word)
     random.shuffle(word_list)
     mix = ''.join(word_list)
     print(mix)
     cou=4
-    for j in range(5):
+    for j in range(ro):
         answer = input()
 
         if answer == word :
@@ -32,13 +32,13 @@ for i in range(5):
             elif cou==0:
                 print('all tries exhausted. Here is another word')
 
-if score==5:
+if score/ro > 0.87:
     print('BRAVO !!!')
-elif score==4:
+elif score/ro >0.70 :
     print('VERY GOOD !!')
-elif score==3:
+elif score/ro > 0.50:
     print('GOOD !! BUT CAN DO BETTER :)')
-elif score==2:
-    print('NEEDS IMPROVEMENT !!')
+elif score/ro > 0.4:
+    print('NEEDS IMPROVEMENT !')
 else:
-    print('Go and pick up a dictionary asshole')
+    print('Failed miserably')
